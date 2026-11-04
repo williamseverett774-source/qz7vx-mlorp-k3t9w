@@ -1,16 +1,15 @@
-body { padding: 0; margin: 0 }
-#unity-container { position: absolute }
-#unity-container.unity-desktop { left: 50%; top: 50%; transform: translate(-50%, -50%) }
-#unity-container.unity-mobile { position: fixed; width: 100%; height: 100% }
-#unity-canvas { background: #231F20 }
-.unity-mobile #unity-canvas { width: 100%; height: 100% }
+html, body { padding: 0; margin: 0; width: 100%; height: 100%; overflow: hidden; background: #231F20 }
+/* The game fills the whole browser window (desktop and mobile alike) */
+#unity-container { position: fixed; left: 0; top: 0; width: 100%; height: 100% }
+#unity-canvas { display: block; width: 100%; height: 100%; background: #231F20 }
 #unity-loading-bar { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); display: none }
 #unity-logo { width: 154px; height: 130px; background: url('unity-logo-dark.png') no-repeat center }
 #unity-progress-bar-empty { width: 141px; height: 18px; margin-top: 10px; margin-left: 6.5px; background: url('progress-bar-empty-dark.png') no-repeat center }
 #unity-progress-bar-full { width: 0%; height: 18px; margin-top: 10px; background: url('progress-bar-full-dark.png') no-repeat center }
-#unity-footer { position: relative }
+/* Just the fullscreen button, floating small in the bottom-right corner */
+#unity-footer { position: absolute; right: 10px; bottom: 10px }
+#unity-logo-title-footer, #unity-build-title { display: none }
+#unity-fullscreen-button { cursor: pointer; width: 38px; height: 38px; border-radius: 8px; background: rgba(255,255,255,0.55) url('fullscreen-button.png') no-repeat center; opacity: 0.6; transition: opacity 0.15s }
+#unity-fullscreen-button:hover { opacity: 1 }
 .unity-mobile #unity-footer { display: none }
-#unity-logo-title-footer { float:left; width: 102px; height: 38px; background: url('unity-logo-title-footer.png') no-repeat center }
-#unity-build-title { float: right; margin-right: 10px; line-height: 38px; font-family: arial; font-size: 18px }
-#unity-fullscreen-button { cursor:pointer; float: right; width: 38px; height: 38px; background: url('fullscreen-button.png') no-repeat center }
 #unity-warning { position: absolute; left: 50%; top: 5%; transform: translate(-50%); background: white; padding: 10px; display: none }
