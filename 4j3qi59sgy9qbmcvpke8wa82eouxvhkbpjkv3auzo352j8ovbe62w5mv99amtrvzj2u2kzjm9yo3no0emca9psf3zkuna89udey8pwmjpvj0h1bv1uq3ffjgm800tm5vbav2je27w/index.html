@@ -130,6 +130,15 @@
 
       document.body.appendChild(script);
 
+      // Fullscreen: Esc goes to the game (closing its menus, as everywhere in it) instead of leaving fullscreen -
+      // hold Esc to leave it (the browser's own hold). The Keyboard Lock API: Chrome and Edge; in other browsers Esc
+      // still leaves fullscreen straight away.
+      document.addEventListener("fullscreenchange", () => {
+        if (!navigator.keyboard || !navigator.keyboard.lock) return;
+        if (document.fullscreenElement) navigator.keyboard.lock(["Escape"]).catch(() => {});
+        else navigator.keyboard.unlock();
+      });
+
     </script>
   </body>
 </html>
